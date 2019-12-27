@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>node.js编写接口</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    $(function(){
+        $.get({
+            url: 'http://localhost:3000/api/getPeople',
+            data: '',
+            success: function(res){
+              var htmlstr = "<table border='1px' style='margin: 5% auto;text-align: center;'><tr><td>名字</td><td>年龄</td><td>是否保存资料</td></tr>";
+              res.data.people.forEach(element => {
+                htmlstr += "<tr><td>"+element.name+"</td><td>"+element.age+"</td><td>"+element.saved+"</td></tr>";
+              });
+              htmlstr += "</table>";
+              document.write(htmlstr);
+            },
+            error: function(error){
+              console.log(error);
+            }
+        })
+    })
+</script>
+</html>
