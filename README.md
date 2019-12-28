@@ -29,3 +29,10 @@ node.js+express+body-parser+cors+mysql
 ![pic1](./sqlAPIImg/1.png)
 ![pic1](./sqlAPIImg/2.png)
 ![pic1](./sqlAPIImg/3.png)  
+# NodeJs二次封装接口
+在项目中，一般最原始的接口地址不应该暴露在项目的外层代码中，所以接口必须进行二次封装，这个练习就演示了如何进行二次封装接口。  
+源请求接口：'https://api.apiopen.top/todayVideo'  
+封装后请求接口: '/api/getPeople'(本地前面就是localhost或者127.0.0.1，其他可以自己添加前面)  
+原理就是在node.js的服务文件中去请求源接口，然后处理接收的数据再转发给新接口，这样前端访问新接口就能拿到源接口的数据，这样源接口地址就不会暴露在请求中，也算是安全措施的一种。  
+![pic1](./urlAPIImg/1.png)
+![pic1](./urlAPIImg/2.png)  
